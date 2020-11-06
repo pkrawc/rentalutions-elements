@@ -69,7 +69,7 @@ export default function Autocomplete({
     if (defaultValue) {
       getDetails({ manualSelection: { formatted_address: defaultValue } })
     }
-  }, [defaultValue])
+  }, [])
   return (
     <Box position="relative">
       <Input

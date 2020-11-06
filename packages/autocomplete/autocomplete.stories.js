@@ -67,12 +67,17 @@ export function BasicUsage() {
 }
 
 export function DefaultValue() {
+  const [address, setAddress] = useState({
+    formatted_address:
+      "1003 North Sandburg Terrace, Chicago, IL, United States",
+  })
   return (
     <AutocompleteProvider apiKey={process.env.PLACES_KEY}>
       <Container>
         <Autocomplete
           label="Mailing Address"
-          defaultValue="1003 North Sandburg Terrace, Chicago, IL, United States"
+          onSelect={(value) => setAddress(value)}
+          defaultValue={address.formatted_address}
         />
       </Container>
     </AutocompleteProvider>
