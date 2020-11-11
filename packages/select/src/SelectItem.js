@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react"
 import { Box } from "@rent_avail/layout"
-import { wrapEvent } from "@rent_avail/utils"
+import { wrapEvent, mergeRefs } from "@rent_avail/utils"
 import { SelectContext, types } from "./SelectProvider"
 
 function SelectItem(
@@ -37,7 +37,6 @@ function SelectItem(
     if (key === "Enter") handleSelect({ target })
     if (key === "Escape") dispatch({ type: types.CLOSE_LIST })
   }
-  useImperativeHandle(ref, () => ({ ...itemRef?.current }))
   useEffect(() => {
     function isFiltered() {
       const matcher = new RegExp(state.typeAheadQuery, "i")
@@ -51,7 +50,7 @@ function SelectItem(
   return visible ? (
     <Box
       {...props}
-      ref={itemRef}
+      ref={mergeRefs(ref, itemRef)}
       as={as}
       data-value={itemValue}
       tabIndex="0"

@@ -6,14 +6,13 @@ import React, {
 } from "react"
 import Popover from "@rent_avail/popover"
 import { Box } from "@rent_avail/layout"
-import { useResize } from "@rent_avail/utils"
+import { useResize, mergeRefs } from "@rent_avail/utils"
 import { SelectContext, types } from "./SelectProvider"
 
 function SelectList({ as = "ul", sx = {}, style = {}, ...props }, ref) {
   const { state, dispatch, listRef, inputRef } = useContext(SelectContext)
   const inputBounds = useResize(inputRef)
   const listBounds = useResize(listRef)
-  useImperativeHandle(ref, () => ({ ...listRef?.current }))
   useEffect(() => {
     let cancelled = false
     function handleDocumentClick({ target }) {
@@ -46,7 +45,7 @@ function SelectList({ as = "ul", sx = {}, style = {}, ...props }, ref) {
     >
       <Box
         {...props}
-        ref={listRef}
+        ref={mergeRefs(ref, listRef)}
         as={as}
         sx={{
           display: "block",

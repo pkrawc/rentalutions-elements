@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/rentalutions/elements/compare/@rent_avail/utils@0.2.7...@rent_avail/utils@0.3.0) (2020-11-11)
+
+
+### Features
+
+* replace imperative handle with merge refs ([33365eb](https://github.com/rentalutions/elements/commit/33365eb190f2cd8707805318e85f6128cf847fc0))
+
+
+
+
+
 ## [0.2.7](https://github.com/rentalutions/elements/compare/@rent_avail/utils@0.2.6...@rent_avail/utils@0.2.7) (2020-11-05)
 
 

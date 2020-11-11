@@ -1,7 +1,7 @@
 import React, { useContext, forwardRef, useImperativeHandle } from "react"
 import { Box } from "@rent_avail/layout"
 import Input from "@rent_avail/input"
-import { wrapEvent } from "@rent_avail/utils"
+import { wrapEvent, mergeRefs } from "@rent_avail/utils"
 import { ChevronDown } from "react-feather"
 import clsx from "clsx"
 import { SelectContext, types } from "./SelectProvider"
@@ -23,12 +23,11 @@ function SelectInput(
     if (key === "ArrowDown") listRef.current.firstChild.focus()
     if (key === "Tab") dispatch({ type: types.CLOSE_LIST })
   }
-  useImperativeHandle(ref, () => ({ ...inputRef?.current }))
   return (
     <Box as="section" sx={{ position: "relative", ...sx }}>
       <Input
         {...props}
-        ref={inputRef}
+        ref={mergeRefs(ref, inputRef)}
         value={state.typeAheadQuery}
         onFocus={wrapEvent(onFocus, handleFocus)}
         onChange={wrapEvent(onChange, handleChange)}

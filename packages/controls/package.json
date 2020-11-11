@@ -1,6 +1,6 @@
 {
   "name": "@rent_avail/controls",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "User control components",
   "source": "src/index.js",
   "main": "dist/index.js",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@rent_avail/base": "^0.4.4",
-    "@rent_avail/utils": "^0.2.7",
+    "@rent_avail/utils": "^0.3.0",
     "framer-motion": "2.4.3",
     "polished": "^3.5.1",
     "styled-system": "^5.1.5"

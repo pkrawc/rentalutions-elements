@@ -3,6 +3,23 @@ import ResizeObserver from "resize-observer-polyfill"
 import "intersection-observer"
 import CalendarDates from "calendar-dates"
 
+function assignRef(ref, value) {
+  if (ref === null) return
+  if (typeof ref === "function") {
+    ref(value)
+    return
+  }
+  try {
+    ref.current = value
+  } catch (error) {
+    throw new Error(`Cannot assign ${value} to ${ref}`)
+  }
+}
+
+export function mergeRefs(...refs) {
+  return (value) => refs.forEach((ref) => assignRef(ref, value))
+}
+
 export function useResize(target, parent) {
   const [bounds, setBounds] = useState({})
   const resize = useCallback(() => {

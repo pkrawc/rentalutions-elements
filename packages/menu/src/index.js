@@ -12,7 +12,7 @@ import React, {
 import styled from "styled-components"
 import Popover from "@rent_avail/popover"
 import { Card } from "@rent_avail/layout"
-import { wrapEvent } from "@rent_avail/utils"
+import { mergeRefs, wrapEvent } from "@rent_avail/utils"
 
 const MenuContext = createContext()
 
@@ -80,11 +80,10 @@ function Target({ children, ...rest }, ref) {
         return false
     }
   }
-  useImperativeHandle(ref, () => ({ ...targetRef }))
   const passedProps = {
     id,
     type: "button",
-    ref: targetRef,
+    ref: mergeRefs(ref, targetRef),
     onClick: wrapEvent(onClick, openMenu),
     onKeyDown: wrapEvent(onKeyDown, handleKeyDown),
     "aria-expanded": isOpen,

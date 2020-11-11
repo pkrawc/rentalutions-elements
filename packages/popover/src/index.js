@@ -1,15 +1,13 @@
 /* eslint-disable no-nested-ternary */
-import React, {
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-  useState,
-  useEffect,
-  useMemo,
-} from "react"
+import React, { useRef, forwardRef, useState, useEffect, useMemo } from "react"
 import { createPortal } from "react-dom"
 import { Box } from "@rent_avail/layout"
-import { usePortal, closestScrollable, useResize } from "@rent_avail/utils"
+import {
+  usePortal,
+  closestScrollable,
+  useResize,
+  mergeRefs,
+} from "@rent_avail/utils"
 import { dequal } from "dequal"
 
 export function getPosition({ popover, target, parent, position: { x, y } }) {
@@ -82,7 +80,6 @@ const Popover = forwardRef(function Popover(
     left: 0,
     visibility: "hidden",
   })
-  useImperativeHandle(ref, () => ({ ...popoverRef }))
   useEffect(() => {
     const newPos = getPosition({
       popover: popoverBounds,
@@ -96,7 +93,7 @@ const Popover = forwardRef(function Popover(
     <Box
       {...rest}
       as="aside"
-      ref={popoverRef}
+      ref={mergeRefs(ref, popoverRef)}
       style={{ ...style, position: "absolute", ...currentPosition }}
     />,
     portalTarget

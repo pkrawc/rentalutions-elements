@@ -9,7 +9,7 @@ import React, {
   Children,
 } from "react"
 import styled from "styled-components"
-import { wrapEvent } from "@rent_avail/utils"
+import { mergeRefs, wrapEvent } from "@rent_avail/utils"
 import Popover from "@rent_avail/popover"
 
 const TooltipContext = createContext()
@@ -52,7 +52,6 @@ function Target({ children, ...props }, ref) {
     state: { isOpen },
     dispatch,
   } = useContext(TooltipContext)
-  useImperativeHandle(ref, () => ({ ...targetRef }))
   const child = Children.only(children)
   const { onBlur, onFocus, onMouseEnter, onMouseLeave, style } = child.props
   function handleOpen() {
@@ -63,7 +62,7 @@ function Target({ children, ...props }, ref) {
   }
   return cloneElement(child, {
     ...props,
-    ref: targetRef,
+    ref: mergeRefs(ref, targetRef),
     id,
     tabIndex: 0,
     type: "button",
@@ -96,7 +95,6 @@ function Content({ children, position, ...props }, ref) {
     popoverRef,
     targetRef,
   } = useContext(TooltipContext)
-  useImperativeHandle(ref, () => ({ ...tooltipRef }))
   return isOpen ? (
     <Popover
       style={{ zIndex: "9999" }}
@@ -106,7 +104,7 @@ function Content({ children, position, ...props }, ref) {
     >
       <StyledTooltip
         {...props}
-        ref={tooltipRef}
+        ref={mergeRefs(ref, tooltipRef)}
         role="tooltip"
         id={id}
         aria-hidden={!isOpen}

@@ -1,6 +1,6 @@
 {
   "name": "@rent_avail/feedback",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "Feedback components.",
   "source": "src/index.js",
   "main": "dist/index.js",
@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@rent_avail/base": "^0.4.4",
-    "@rent_avail/typography": "^0.1.15",
-    "@rent_avail/utils": "^0.2.7",
+    "@rent_avail/typography": "^0.1.16",
+    "@rent_avail/utils": "^0.3.0",
     "framer-motion": "2.4.3",
     "react-feather": "^2.0.4",
     "styled-system": "^5.1.5"

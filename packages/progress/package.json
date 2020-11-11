@@ -1,6 +1,6 @@
 {
   "name": "@rent_avail/progress",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Progress components",
   "source": "src/index.js",
   "main": "dist/index.js",
@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@rent_avail/base": "^0.4.4",
-    "@rent_avail/utils": "^0.2.7"
+    "@rent_avail/utils": "^0.3.0"
   }
 }
