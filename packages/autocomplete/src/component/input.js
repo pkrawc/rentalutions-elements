@@ -1,16 +1,29 @@
-import React, { useContext, forwardRef, useRef } from "react"
+import React, { useContext, forwardRef } from "react"
 import Input from "@rent_avail/input"
 import { AutocompleteContext } from "./wrapper"
 import { mergeRefs, noop, wrapEvent } from "@rent_avail/utils"
 
 function useAutocompleteInput({ onChange = noop, onKeyDown = noop, ...props }) {
-  const { query, selection } = useContext(AutocompleteContext)
-  const innerRef = useRef()
-  function handleKeyDown() {}
-  function handleChange() {}
+  const {
+    query,
+    selection,
+    setQuery,
+    error,
+    inputRef,
+    clearSelection,
+    onClear,
+  } = useContext(AutocompleteContext)
+  function handleKeyDown({ key }) {
+    if (selection) clearSelection(onClear)
+    if (key === "ArrowDown") listRef.current?.firstElementChild.focus()
+  }
+  function handleChange({ target }) {
+    setQuery(target.value)
+  }
   return {
     ...props,
-    ref: mergeRefs(props.ref, innerRef),
+    error: error || props.error,
+    ref: mergeRefs(props.ref, inputRef),
     onChange: wrapEvent(onChange, handleChange),
     onKeyDown: wrapEvent(onKeyDown, handleKeyDown),
     value: query,
