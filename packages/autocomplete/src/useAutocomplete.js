@@ -158,6 +158,7 @@ export default function useAutocomplete(input = "") {
       const request = {
         input: state.query,
         types: ["address"],
+        componentRestrictions: { country: "us" },
         sessionToken: state.sessionToken,
       }
 
