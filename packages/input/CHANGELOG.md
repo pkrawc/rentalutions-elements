@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/rentalutions/elements/compare/@rent_avail/input@0.3.1...@rent_avail/input@0.4.0) (2020-11-25)
+
+
+### Bug Fixes
+
+* refactor input component with wrapper ([a601da7](https://github.com/rentalutions/elements/commit/a601da70367f1a841cdc858c732183efbdb16721))
+
+
+### BREAKING CHANGES
+
+* ID was being swallowed by the component
+
+
+
+
+
 ## [0.3.1](https://github.com/rentalutions/elements/compare/@rent_avail/input@0.3.0...@rent_avail/input@0.3.1) (2020-11-11)
 
 **Note:** Version bump only for package @rent_avail/input

@@ -1,5 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { ThemeProvider } from "styled-components"
 import { Base, theme } from "@rent_avail/base"
 import "@testing-library/jest-dom/extend-expect"
@@ -22,4 +23,4 @@ const customRender = (ui, options) =>
 export * from "@testing-library/react"
 
 // override render method
-export { customRender as render }
+export { customRender as render, userEvent }

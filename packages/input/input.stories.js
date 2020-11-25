@@ -16,14 +16,14 @@ export default { title: "Input" }
 export function BasicUsage() {
   return (
     <Container sx={{ my: "4rem" }}>
-      <Stack wrapChildren>
+      <Stack wrapChildren spacing="1rem">
         <Input label="Required Field" required />
         <Input label="Optional Field" />
         <Input label="Disabled Field" disabled />
         <Input label="Disabled Field" disabled value="I'm disabled" />
         <Input label="Default Field" value="Default Value" />
         <Input label="Icon Field" icon={Search} />
-        <Input label="Error Field" error="Some Error" sx={{ mb: "2rem" }} />
+        <Input label="Error Field" error="Some Error" />
         <Input label="Date Field" type="date" />
         <Input label="Textarea Field" as="textarea" />
       </Stack>

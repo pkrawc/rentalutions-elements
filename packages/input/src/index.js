@@ -3,6 +3,7 @@ import { wrapEvent, noop, useId } from "@rent_avail/utils"
 import { Box } from "@rent_avail/layout"
 import { Calendar } from "react-feather"
 import clsx from "clsx"
+import { omit, pick } from "@styled-system/props"
 
 function Input(
   {
@@ -11,7 +12,6 @@ function Input(
     defaultValue,
     disabled,
     error,
-    id,
     icon,
     label,
     labelId,
@@ -36,136 +36,148 @@ function Input(
   useEffect(() => {
     setFilled(value?.length || isDate)
   }, [value])
+  const systemProps = pick(props)
+  const inputProps = omit(props)
   return (
     <Box
-      as="label"
-      className={clsx(className, { filled, error })}
-      sx={{
-        position: "relative",
-        display: "block",
-        borderWidth: 2,
-        borderStyle: "solid",
-        borderColor: "ui_500",
-        borderRadius: 4,
-        color: disabled ? "ui_700" : "ui_900",
-        cursor: disabled ? "not-allowed" : "text",
-        lineHeight: "small",
-        width: "100%",
-        "&:focus-within": {
-          borderColor: "blue_500",
-          color: "blue_500",
-        },
-        "&:focus-within .input__label-row, &.filled .input__label-row": {
-          transform: "translateY(-1rem) scale(0.889)",
-        },
-        "&.filled:not(:focus-within):not(.error) .input__label-row": {
-          color: disabled ? "ui_500" : "ui_700",
-        },
-        "&.error": {
-          borderColor: "red_500",
-        },
-        "&.error .input__label-row": {
-          color: "red_500",
-        },
-        "& > *": {
-          transition: "120ms",
-        },
-        ...sx,
-      }}
+      className={className}
+      sx={{ minHeight: "9rem", ...sx }}
+      {...systemProps}
     >
       <Box
-        {...props}
-        ref={ref}
-        as={as}
-        type={type}
-        aria-labelledby={ariaId}
-        value={value}
-        defaultValue={defaultValue}
-        disabled={disabled}
-        onChange={wrapEvent(onChange, handleChange)}
-        placeholder={isDate ? "mm/dd/yyyy" : undefined}
+        as="label"
+        className={clsx(className, { filled, error })}
         sx={{
-          all: "unset",
-          appearance: "none",
-          boxSizing: "border-box",
           position: "relative",
-          p: icon ? "3rem 2rem 1rem 5rem" : "3rem 2rem 1rem",
-          fontFamily: "body",
-          height: isTextarea ? "auto" : "6.5rem",
+          display: "block",
+          color: disabled ? "ui_700" : "ui_900",
+          cursor: disabled ? "not-allowed" : "text",
+          lineHeight: "small",
           width: "100%",
-          clipPath: isTextarea ? "inset(3rem 0 0 0)" : "none",
-          "&::-webkit-calendar-picker-indicator": {
-            background: "transparent",
-            opacity: 1,
-            cursor: "pointer",
+          borderWidth: 2,
+          borderStyle: "solid",
+          borderColor: "ui_500",
+          borderRadius: 4,
+          "&:focus-within": {
+            borderColor: "blue_500",
+            color: "blue_500",
           },
-          "&::-webkit-calendar-picker-indicator:hover + svg": {
-            color: "ui_300",
+          "&:focus-within .input__label-row, &.filled .input__label-row": {
+            transform: "translateY(-1rem) scale(0.889)",
           },
-        }}
-      />
-      {isDate && (
-        <Box
-          as={Calendar}
-          className="calendar-icon"
-          sx={{
-            pointerEvents: "none",
-            position: "absolute",
-            right: "2rem",
-            top: "3rem",
-          }}
-        />
-      )}
-      <Box
-        className="input__label-row"
-        sx={{
-          position: "absolute",
-          display: "flex",
-          alignItems: "center",
-          top: "2.25rem",
-          left: icon ? "5rem" : "2rem",
-          transformOrigin: "top left",
-          pointerEvents: "none",
-          color: disabled ? "ui_500" : "inherit",
+          "&.filled:not(:focus-within):not(.error) .input__label-row": {
+            color: disabled ? "ui_500" : "ui_700",
+          },
+          "&.error": {
+            borderColor: "red_500",
+            color: "ui_900",
+          },
+          "&.error .input__label-row": {
+            color: "red_500",
+          },
+          "& .input__label-row": {
+            lineHeight: "body",
+          },
+          "& > *": {
+            transition: "120ms",
+          },
         }}
       >
-        <Box as="span" id={ariaId}>
-          {label}
-        </Box>
-        {required && (
+        <Box
+          {...inputProps}
+          ref={ref}
+          as={as}
+          type={type}
+          aria-labelledby={ariaId}
+          value={value}
+          defaultValue={defaultValue}
+          disabled={disabled}
+          onChange={wrapEvent(onChange, handleChange)}
+          placeholder={isDate ? "mm/dd/yyyy" : undefined}
+          sx={{
+            all: "unset",
+            appearance: "none",
+            p: icon ? "3rem 2rem 1rem 5rem" : "3rem 2rem 1rem",
+            boxSizing: "border-box",
+            position: "relative",
+            fontFamily: "body",
+            fontSize: "body",
+            lineHeight: "body",
+            width: "100%",
+            height: isTextarea ? "auto" : "calc(7rem - 4px)",
+            outline: "none",
+            clipPath: isTextarea ? "inset(3rem 0 0 0)" : "none",
+            "&::-webkit-calendar-picker-indicator": {
+              background: "transparent",
+              opacity: 1,
+              cursor: "pointer",
+            },
+            "&::-webkit-calendar-picker-indicator:hover + svg": {
+              color: "ui_300",
+            },
+          }}
+        />
+        {isDate && (
           <Box
-            as="span"
+            as={Calendar}
+            className="calendar-icon"
             sx={{
-              width: 6,
-              height: 6,
-              bg: "red_500",
-              borderRadius: "50%",
-              ml: "1rem",
+              pointerEvents: "none",
+              position: "absolute",
+              right: "2rem",
+              top: "3rem",
             }}
+          />
+        )}
+        <Box
+          className="input__label-row"
+          sx={{
+            position: "absolute",
+            display: "flex",
+            alignItems: "center",
+            top: "2.5rem",
+            left: icon ? "5rem" : "2rem",
+            transformOrigin: "top left",
+            pointerEvents: "none",
+            color: disabled ? "ui_500" : "inherit",
+          }}
+        >
+          <Box as="span" id={ariaId}>
+            {label}
+          </Box>
+          {required && (
+            <Box
+              as="span"
+              sx={{
+                width: 6,
+                height: 6,
+                bg: "red_500",
+                borderRadius: "50%",
+                ml: "1rem",
+              }}
+            />
+          )}
+        </Box>
+        {icon && (
+          <Box
+            as={icon}
+            aria-label="input icon"
+            sx={{ position: "absolute", left: "2rem", top: "2.25rem" }}
           />
         )}
       </Box>
       {error && (
         <Box
-          as="span"
+          role="alert"
           sx={{
-            position: "absolute",
-            top: "100%",
-            left: 0,
             fontSize: "small",
+            lineHeight: "small",
             color: "red_500",
             width: "100%",
           }}
         >
           {error}
         </Box>
-      )}
-      {icon && (
-        <Box
-          as={icon}
-          aria-label="input icon"
-          sx={{ position: "absolute", left: "2rem", top: "2.25rem" }}
-        />
       )}
     </Box>
   )

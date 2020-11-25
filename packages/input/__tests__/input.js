@@ -1,23 +1,49 @@
 import React from "react"
-import { render, screen, fireEvent } from "testing-utils"
+import { render, screen, userEvent } from "testing-utils"
 import Input from "../src"
 
 describe("<Input />", () => {
-  it("renders without crashing", () => {
-    render(<Input label="Phone Number" />)
-    expect(screen.getByText(/Phone Number/)).toBeInTheDocument()
+  it("Should render without crashing", () => {
+    render(<Input label="Phone Number" labelId="phone_number_specific" />)
+    const input = screen.getByLabelText(/Phone Number/)
+    expect(input).toBeInTheDocument()
   })
-  it("stores the value internally", async () => {
-    render(<Input aria-label="name-input" label="Name" />)
-    const input = screen.getByLabelText(/name-input/)
-    fireEvent.change(input, { target: { value: "Chuck" } })
+  it("Should store it's value internally", async () => {
+    render(<Input label="Name" labelId="user_name" />)
+    const input = screen.getByLabelText(/Name/)
+    userEvent.type(input, "Chuck")
     expect(input).toHaveValue("Chuck")
-    fireEvent.change(input, { target: { value: "Bruce" } })
-    expect(input).toHaveValue("Bruce")
+    userEvent.type(input, " Norris")
+    expect(input).toHaveValue("Chuck Norris")
   })
-  it("is raised on mount when type is date", () => {
-    render(<Input type="date" aria-label="birth-input" label="Birth Date" />)
-    const input = screen.getByLabelText(/birth-input/)
+  it("Should mount filled when type is date", () => {
+    const { container } = render(
+      <Input type="date" label="Birth Date" labelId="user_birth_day" />
+    )
+    const input = screen.getByLabelText(/Birth Date/)
+    const wrapper = container.querySelector("label")
     expect(input).toHaveAttribute("type", "date")
+    expect(wrapper).toHaveClass("filled")
+  })
+  it("Should display an error when present.", () => {
+    const { rerender } = render(
+      <Input
+        label="First Name"
+        labelId="first_name"
+        error="Must enter a name."
+      />
+    )
+    expect(screen.queryByText(/Must enter a name./)).toBeInTheDocument()
+
+    rerender(<Input label="First Name" labelId="first_name" error={null} />)
+
+    expect(screen.queryByText(/Must enter a name./)).not.toBeInTheDocument()
+  })
+
+  it("Shouldn't allow value changes when disabled", async () => {
+    render(<Input disabled label="Favorite Color" />)
+    const input = screen.getByLabelText(/Favorite Color/)
+    userEvent.type(input, "Hello World")
+    expect(input).toHaveValue("")
   })
 })
