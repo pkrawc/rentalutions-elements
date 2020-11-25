@@ -3310,19 +3310,6 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@rent_avail/input@*":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@rent_avail/input/-/input-0.3.1.tgz#4cb138cc918ebe257a5fc3251ca623d5c21d061c"
-  integrity sha512-I1A1z3LyXB6GXMgzWIik/ifyMsxp0TvzwLwWzjVKIGs/PaZJojM1uj8mWnYW5Uc/XVGqQYf/mZ9/9rnBhY6viA==
-  dependencies:
-    "@rent_avail/base" "^0.4.4"
-    "@rent_avail/layout" "^0.3.8"
-    "@rent_avail/utils" "^0.3.0"
-    "@styled-system/props" "^5.1.5"
-    clsx "^1.1.0"
-    react-feather "^2.0.4"
-    styled-system "^5.1.5"
-
 "@rollup/plugin-alias@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-3.1.1.tgz#bb96cf37fefeb0a953a6566c284855c7d1cd290c"
