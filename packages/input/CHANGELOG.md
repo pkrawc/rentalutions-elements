@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/rentalutions/elements/compare/@rent_avail/input@0.4.2...@rent_avail/input@0.4.3) (2020-12-14)
+
+
+### Bug Fixes
+
+* update input display property for date type ([b8c6aca](https://github.com/rentalutions/elements/commit/b8c6acaac4e69441712d60139e6aeb595565c206))
+
+
+
+
+
+## [0.4.2](https://github.com/rentalutions/elements/compare/@rent_avail/input@0.4.1...@rent_avail/input@0.4.2) (2020-12-02)
+
+**Note:** Version bump only for package @rent_avail/input
+
+
+
+
+
+## [0.4.1](https://github.com/rentalutions/elements/compare/@rent_avail/input@0.4.0...@rent_avail/input@0.4.1) (2020-12-02)
+
+**Note:** Version bump only for package @rent_avail/input
+
+
+
+
+
 # [0.4.0](https://github.com/rentalutions/elements/compare/@rent_avail/input@0.3.1...@rent_avail/input@0.4.0) (2020-11-25)
 
 

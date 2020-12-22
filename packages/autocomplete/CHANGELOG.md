@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/rentalutions/elements/compare/@rent_avail/autocomplete@0.3.6...@rent_avail/autocomplete@0.3.7) (2020-12-14)
+
+**Note:** Version bump only for package @rent_avail/autocomplete
+
+
+
+
+
+## [0.3.6](https://github.com/rentalutions/elements/compare/@rent_avail/autocomplete@0.3.5...@rent_avail/autocomplete@0.3.6) (2020-12-02)
+
+**Note:** Version bump only for package @rent_avail/autocomplete
+
+
+
+
+
+## [0.3.5](https://github.com/rentalutions/elements/compare/@rent_avail/autocomplete@0.3.4...@rent_avail/autocomplete@0.3.5) (2020-12-02)
+
+**Note:** Version bump only for package @rent_avail/autocomplete
+
+
+
+
+
 ## [0.3.4](https://github.com/rentalutions/elements/compare/@rent_avail/autocomplete@0.3.3...@rent_avail/autocomplete@0.3.4) (2020-11-25)
 
 **Note:** Version bump only for package @rent_avail/autocomplete

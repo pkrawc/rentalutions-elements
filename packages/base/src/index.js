@@ -73,6 +73,32 @@ export const theme = {
     "0 0.25rem 0.5rem rgba(0,0,0,0.12)",
     "0 1rem 1rem -1rem rgba(0,0,0,0.12)",
   ],
+  text: {
+    body: {
+      lineHeight: "body",
+      fontSize: "body",
+    },
+    small: {
+      lineHeight: "small",
+      fontSize: "small",
+    },
+    subtitle: {
+      lineHeight: "heading",
+      fontSize: "subtitle",
+    },
+    title: {
+      lineHeight: "heading",
+      fontSize: "title",
+    },
+    headline: {
+      lineHeight: "heading",
+      fontSize: "headline",
+    },
+    hero: {
+      lineHeight: "heading",
+      fontSize: "hero",
+    },
+  },
 }
 
 export const Base = createGlobalStyle`
@@ -165,4 +191,13 @@ export const Base = createGlobalStyle`
   }
 `
 
-export const sx = (props) => css(props.sx)
+export const sx = ({ sx = {} }) => {
+  const { text, ...styleProps } = sx
+  if (text) {
+    return css({
+      variant: [...text].map((txt) => `text.${txt}`),
+      ...styleProps,
+    })
+  }
+  return css(styleProps)
+}

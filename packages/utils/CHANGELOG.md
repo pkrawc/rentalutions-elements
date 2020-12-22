@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/rentalutions/elements/compare/@rent_avail/utils@0.3.0...@rent_avail/utils@0.3.1) (2020-12-02)
+
+
+### Bug Fixes
+
+* update scrollable element search ([3fa93ec](https://github.com/rentalutions/elements/commit/3fa93ec768e21b72691d78a2a543604c8513b3e8))
+
+
+
+
+
 # [0.3.0](https://github.com/rentalutions/elements/compare/@rent_avail/utils@0.2.7...@rent_avail/utils@0.3.0) (2020-11-11)
 
 

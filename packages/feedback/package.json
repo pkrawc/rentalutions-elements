@@ -1,6 +1,6 @@
 {
   "name": "@rent_avail/feedback",
-  "version": "0.2.12",
+  "version": "0.2.14",
   "description": "Feedback components.",
   "source": "src/index.js",
   "main": "dist/index.js",
@@ -29,11 +29,11 @@
     "styled-components": "^5.1.1"
   },
   "dependencies": {
-    "@rent_avail/base": "^0.4.4",
-    "@rent_avail/typography": "^0.1.16",
-    "@rent_avail/utils": "^0.3.0",
-    "framer-motion": "2.4.3",
-    "react-feather": "^2.0.4",
+    "@rent_avail/base": "^0.5.0",
+    "@rent_avail/typography": "^0.1.18",
+    "@rent_avail/utils": "^0.3.1",
+    "framer-motion": "3.0.0",
+    "react-feather": "^2.0.9",
     "styled-system": "^5.1.5"
   }
 }

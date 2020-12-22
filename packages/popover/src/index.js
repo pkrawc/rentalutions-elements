@@ -65,7 +65,14 @@ function deepCompare(value) {
 }
 
 const Popover = forwardRef(function Popover(
-  { targetRef, position = { x: "default", y: "default" }, style, ...rest },
+  {
+    targetRef,
+    position = { x: "default", y: "default" },
+    style,
+    sx = {},
+    as = "aside",
+    ...rest
+  },
   ref
 ) {
   const popoverRef = useRef(null)
@@ -92,9 +99,10 @@ const Popover = forwardRef(function Popover(
   return createPortal(
     <Box
       {...rest}
-      as="aside"
+      as={as}
       ref={mergeRefs(ref, popoverRef)}
-      style={{ ...style, position: "absolute", ...currentPosition }}
+      sx={{ position: "absolute", ...sx }}
+      style={{ ...style, ...currentPosition }}
     />,
     portalTarget
   )

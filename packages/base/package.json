@@ -1,6 +1,6 @@
 {
   "name": "@rent_avail/base",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "Styling reset and theme",
   "source": "src/index.js",
   "main": "dist/index.js",

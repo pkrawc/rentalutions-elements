@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/rentalutions/elements/compare/@rent_avail/base@0.4.4...@rent_avail/base@0.5.0) (2020-12-02)
+
+
+### Bug Fixes
+
+* update build command ([ce2bfc4](https://github.com/rentalutions/elements/commit/ce2bfc47d722b40d87bbad7806b727cc29e9712a))
+
+
+### Features
+
+* update text variant in sx object ([d473703](https://github.com/rentalutions/elements/commit/d473703dd34d25e74757b787897c2a01f5bccfbc))
+
+
+
+
+
 ## [0.4.4](https://github.com/rentalutions/elements/compare/@rent_avail/base@0.4.3...@rent_avail/base@0.4.4) (2020-10-08)
 
 **Note:** Version bump only for package @rent_avail/base

@@ -12,10 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@babel/core": "^7.11.5",
-    "@mdx-js/loader": "^1.6.14",
-    "@mdx-js/mdx": "^1.6.14",
-    "@mdx-js/react": "^1.6.14",
+    "@mdx-js/react": "^1.6.22",
     "@rent_avail/autocomplete": "*",
     "@rent_avail/avatar": "*",
     "@rent_avail/base": "*",
@@ -34,31 +31,24 @@
     "@rent_avail/typography": "*",
     "@rent_avail/utils": "*",
     "clsx": "^1.1.1",
-    "eslint": "^7.8.1",
-    "framer-motion": "2.4.3",
-    "next": "^9.5.3",
-    "next-compose-plugins": "^2.2.0",
-    "next-mdx-enhanced": "^4.0.0",
-    "next-seo": "^4.11.0",
-    "next-transpile-modules": "^4.1.0",
-    "polished": "^3.6.6",
-    "prettier": "^2.1.1",
+    "framer-motion": "3.0.0",
+    "next": "^10.0.3",
+    "next-compose-plugins": "^2.2.1",
+    "next-mdx-enhanced": "^5.0.0",
+    "next-seo": "^4.17.0",
     "prism-react-renderer": "^1.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-feather": "^2.0.4",
-    "react-is": "^16.13.1",
-    "react-live": "^2.2.2",
-    "reading-time": "^1.2.0",
-    "rehype": "^11.0.0",
-    "styled-components": "^5.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
+    "react-is": "^17.0.1",
+    "react-live": "^2.2.3",
+    "reading-time": "^1.2.1",
+    "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.10.1",
     "babel-plugin-import-glob-array": "^0.2.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "babel-plugin-styled-components": "^1.10.7"
-  },
-  "browserslist": "> 0.25%, not dead"
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-styled-components": "^1.12.0"
+  }
 }

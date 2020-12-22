@@ -305,7 +305,7 @@ export function isScrollable(node) {
 
 export function closestScrollable(element) {
   let parent = element
-  while (parent.parentElement) {
+  while (parent?.parentElement) {
     parent = parent.parentElement
     if (isScrollable(parent)) return parent
   }

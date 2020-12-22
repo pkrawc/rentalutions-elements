@@ -1,6 +1,6 @@
 {
   "name": "@rent_avail/input",
-  "version": "0.4.0",
+  "version": "0.4.3",
   "description": "Input components",
   "source": "src/index.js",
   "main": "dist/index.js",
@@ -29,12 +29,12 @@
     "styled-components": "^5.1.1"
   },
   "dependencies": {
-    "@rent_avail/base": "^0.4.4",
-    "@rent_avail/layout": "^0.3.8",
-    "@rent_avail/utils": "^0.3.0",
+    "@rent_avail/base": "^0.5.0",
+    "@rent_avail/layout": "^0.3.10",
+    "@rent_avail/utils": "^0.3.1",
     "@styled-system/props": "^5.1.5",
     "clsx": "^1.1.0",
-    "react-feather": "^2.0.4",
+    "react-feather": "^2.0.9",
     "styled-system": "^5.1.5"
   }
 }

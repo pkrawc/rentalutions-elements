@@ -15,6 +15,7 @@ function Input(
     icon,
     label,
     labelId,
+    labelledBy = "",
     required,
     onChange = noop,
     sx = {},
@@ -88,7 +89,7 @@ function Input(
           ref={ref}
           as={as}
           type={type}
-          aria-labelledby={ariaId}
+          aria-labelledby={[labelledBy, ariaId].join(" ").trim()}
           value={value}
           defaultValue={defaultValue}
           disabled={disabled}
@@ -96,6 +97,8 @@ function Input(
           placeholder={isDate ? "mm/dd/yyyy" : undefined}
           sx={{
             all: "unset",
+            display: "inline-flex",
+            alignItems: "center",
             appearance: "none",
             p: icon ? "3rem 2rem 1rem 5rem" : "3rem 2rem 1rem",
             boxSizing: "border-box",
