@@ -159,7 +159,9 @@ export default function Autocomplete({
             })}
             {suggestions.length < 5 && (
               <Box className="manual-add" sx={{ p: "2rem" }}>
-                No results found.&nbsp;
+                <Box as="span" sx={{ mr: "1rem" }}>
+                  Can't find the correct address?
+                </Box>
                 <Box
                   tabIndex="0"
                   as="span"

@@ -3,7 +3,7 @@ export {
   AutocompleteContext,
 } from "./AutocompleteProvider"
 export { default as Autocomplete } from "./Autocomplete"
-export { default as useAutocomplete } from "./useAutocomplete"
+export { default as useAutocomplete } from "./use-autocomplete"
 
 export { Unsafe_Autocomplete } from "./component/wrapper"
 export { Unsafe_AutocompleteInput } from "./component/input"
