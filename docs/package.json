@@ -27,6 +27,7 @@
     "@rent_avail/select": "*",
     "@rent_avail/skeleton": "*",
     "@rent_avail/tag": "*",
+    "@rent_avail/toast": "*",
     "@rent_avail/tooltip": "*",
     "@rent_avail/typography": "*",
     "@rent_avail/utils": "*",

@@ -1,0 +1,26 @@
+---
+title: Toast
+layout: elements
+package_name: toast
+install: "yarn add @rent_avail/toast"
+source: https://github.com/rentalutions/elements/tree/release/packages/toast
+---
+
+```jsx
+import { useToast } from "@rent_avail/toast"
+```
+
+```jsx live
+function Example() {
+  const toast = useToast()
+  return (
+    <Box onClick={(e) => toast.blank("I'm a basic toast.")} as="button">
+      Basic Toast
+    </Box>
+  )
+}
+```
+
+### Description
+
+Snackbars are used to inform users on an action that the app performed. It appears at the botton of the screen and is temporary. The user may dismiss or take action from the snackbar, however it is not necessary. The snackbar only allows for one action.
