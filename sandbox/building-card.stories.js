@@ -8,7 +8,12 @@ import {
   ConfirmationDialog,
 } from "@rent_avail/dialog"
 import Input from "@rent_avail/input"
-import { Select, SelectInput, SelectList, SelectItem } from "@rent_avail/select"
+import {
+  Select,
+  SelectInput,
+  SelectList,
+  SelectOption,
+} from "@rent_avail/select"
 import { Button } from "@rent_avail/controls"
 import {
   Edit,
@@ -151,9 +156,9 @@ function EditBuilding({ building }) {
             <SelectInput label="Select your building type." />
             <SelectList>
               {buildingTypes.map(({ name, value }) => (
-                <SelectItem key={value} value={name} name={name}>
+                <SelectOption key={value} value={name} name={name}>
                   {name}
-                </SelectItem>
+                </SelectOption>
               ))}
             </SelectList>
           </Select>

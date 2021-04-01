@@ -17,7 +17,9 @@ function assignRef(ref, value) {
 }
 
 export function mergeRefs(...refs) {
-  return (value) => refs.forEach((ref) => assignRef(ref, value))
+  return (value) => {
+    refs.forEach((ref) => assignRef(ref, value))
+  }
 }
 
 export function useResize(target, parent) {

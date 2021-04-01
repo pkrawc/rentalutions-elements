@@ -13,7 +13,8 @@
       "message": "chore(release): publish"
     },
     "version": {
-      "conventialCommits": true
+      "conventialCommits": true,
+      "includeMergeTags": true
     }
   },
   "ignoreChanges": [

@@ -8,7 +8,12 @@ import {
   DialogTarget,
   ConfirmationDialog,
 } from "@rent_avail/dialog"
-import { Select, SelectInput, SelectList, SelectItem } from "@rent_avail/select"
+import {
+  Select,
+  SelectInput,
+  SelectList,
+  SelectOption,
+} from "@rent_avail/select"
 import Input from "./src"
 
 export default { title: "Packages/Input" }
@@ -79,9 +84,9 @@ export function DialogUsage() {
                 <SelectInput label="Choose a state" />
                 <SelectList>
                   {options.map(({ label, value }) => (
-                    <SelectItem key={value} value={value} label={label}>
+                    <SelectOption key={value} value={value} label={label}>
                       {label}
-                    </SelectItem>
+                    </SelectOption>
                   ))}
                 </SelectList>
               </Select>

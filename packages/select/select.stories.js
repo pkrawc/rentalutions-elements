@@ -1,6 +1,6 @@
 import React, { useState, useRef, Fragment } from "react"
 import { Heading } from "@rent_avail/typography"
-import { Container } from "@rent_avail/layout"
+import { Container, Box } from "@rent_avail/layout"
 import {
   Dialog,
   DialogTarget,
@@ -9,41 +9,37 @@ import {
   FullscreenDialog,
 } from "@rent_avail/dialog"
 import { Button } from "@rent_avail/controls"
-import { Select, SelectInput, SelectList, SelectItem } from "./src"
+import { Select, SelectInput, SelectList, SelectOption } from "./src"
 
 export default { title: "Packages/Select" }
 
-function SelectExample({ defaultValue = "", defaultLabel = "" }) {
-  const options = [
-    { name: "Alabama", value: "AL" },
-    { name: "Alaska", value: "AK" },
-    { name: "Arizona", value: "AZ" },
-    { name: "Arkansas", value: "AR" },
-    { name: "California", value: "CA" },
-    { name: "Colorado", value: "CO" },
-    { name: "Connecticut", value: "CT" },
-    { name: "A long name that may not fit on smaller screens", value: "ZZ" },
-  ]
+const options = [
+  { name: "Alabama", value: "AL" },
+  { name: "Alaska", value: "AK" },
+  { name: "Arizona", value: "AZ" },
+  { name: "Arkansas", value: "AR" },
+  { name: "California", value: "CA" },
+  { name: "Colorado", value: "CO" },
+  { name: "Connecticut", value: "CT" },
+  { name: "A long name that may not fit on smaller screens", value: "ZZ" },
+]
+
+function SelectExample() {
   const [state, setState] = useState("")
   return (
-    <Fragment>
+    <Container sx={{ mt: "4rem" }}>
       <Heading mb="2rem">{state || "Select a value"}</Heading>
-      <Select
-        id="select-id"
-        onSelect={(value) => setState(value)} 
-        defaultValue={defaultValue}
-        defaultLabel={defaultLabel}
-      >
+      <Select id="select-id" onSelect={(value) => setState(value)}>
         <SelectInput label="Choose a state" />
         <SelectList>
           {options.map(({ name, value }) => (
-            <SelectItem key={value} value={value} label={`Your ${name}`}>
+            <SelectOption key={value} value={value} label={`Your ${name}`}>
               {name}
-            </SelectItem>
+            </SelectOption>
           ))}
         </SelectList>
       </Select>
-    </Fragment>
+    </Container>
   )
 }
 
@@ -98,13 +94,21 @@ export function FullscreenPortalUsage() {
   )
 }
 
-export function DefaultLabelUsage() {
+export function DefaultSelected() {
+  const [state, setState] = useState("")
   return (
-    <Container>
-      <SelectExample
-        defaultValue="ZZ"
-        defaultLabel="A long name that may not fit on smaller screens"
-      />
+    <Container sx={{ my: "12rem" }}>
+      <Heading mb="2rem">{state || "Select a value"}</Heading>
+      <Select id="select-id" onSelect={(value) => setState(value)}>
+        <SelectInput label="Choose a state" />
+        <SelectList>
+          {options.map(({ name, value }) => (
+            <SelectOption key={value} value={value} label={`Your ${name}`}>
+              {name}
+            </SelectOption>
+          ))}
+        </SelectList>
+      </Select>
     </Container>
   )
 }
